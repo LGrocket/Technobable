@@ -12,8 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+      <%= f.fields_for :definitions do |ff| %>
+        <%= ff.label :content, "Definition" %><br />
+        <%= ff.text_area :content, :rows => 3 %><br />
+      <% end %>
     <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
+    <%= f.text_field :tags %><br />
   </div>
   <div class="actions">
     <%= f.submit %>

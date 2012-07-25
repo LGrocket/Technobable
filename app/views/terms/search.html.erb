@@ -1,0 +1,27 @@
+<h1>Search Results</h1>
+
+
+  <% if @terms.empty? %>
+    <p>No results found.</p>
+  <% else %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Definition</th>
+        <th>Tags</th>
+        <th></th>
+      </tr>
+    <% @terms.each do |term| %>
+      <tr>
+        <td><%= term.name %></td>
+        <% term.definitions.each do |definition| %>
+          <td><%= definition.content %></td>
+        <% end %>
+        <td><%= term.tags %></td>
+        <td><%= link_to 'Show', term %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<%= link_to 'Go Back', :controller => :main, :action => :home %>

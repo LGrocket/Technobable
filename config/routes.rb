@@ -1,7 +1,13 @@
 Technobabble::Application.routes.draw do
-  resources :terms
+  resources :terms do
+    resources :definitions
+  end
 
   resources :users
+
+  match '/' => 'main#home'
+
+  match 'search' => 'terms#search', :as => :search
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

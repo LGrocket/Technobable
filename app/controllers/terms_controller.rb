@@ -25,6 +25,7 @@ class TermsController < ApplicationController
   # GET /terms/new.json
   def new
     @term = Term.new
+    @term.definitions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,4 +81,15 @@ class TermsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Search term names
+  def search
+    @terms = Term.search params[:q] 
+    
+    respond_to do |format|
+      format.html #search.html.erb
+      format.json { render json: @terms }
+    end
+  end
+
 end

@@ -2,14 +2,15 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Tags</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @terms.each do |term| %>
   <tr>
+    <td><%= term.name %></td>
     <td><%= term.tags %></td>
     <td><%= link_to 'Show', term %></td>
     <td><%= link_to 'Edit', edit_term_path(term) %></td>
