@@ -4,10 +4,14 @@ Technobabble::Application.routes.draw do
   end
 
   resources :users
+  resources :definitions
+  resources :groups
 
   match '/' => 'main#home'
 
   match 'search' => 'terms#search', :as => :search
+
+  match 'admin' => 'main#admin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

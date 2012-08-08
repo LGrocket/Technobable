@@ -14,10 +14,15 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %><br />
-      <%= f.fields_for :definitions do |ff| %>
-        <%= ff.label :content, "Definition" %><br />
-        <%= ff.text_area :content, :rows => 3 %><br />
-      <% end %>
+    <%= f.fields_for :definitions do |ff| %>
+      <%= ff.label :content, "Definition" %><br />
+      <%= ff.text_area :content, :rows => 3 %>
+      <%= ff.label :group_id, "For:" %>
+      <%= ff.collection_select :group_id, Group.all, :id, :name %>
+      <%= ff.check_box :_destroy %>
+      <%= ff.label :_destroy, "Remove this definition" %>
+      <br />
+    <% end %>
     <%= f.label :tags %><br />
     <%= f.text_field :tags %><br />
   </div>

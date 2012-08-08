@@ -1,0 +1,22 @@
+<h1>Admin Panel</h1>
+
+<% if !@terms.empty? %>
+  <h3>Terms</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Definitions - Content</th>
+      <th>Definitions - Group</th>
+      <th>Definitions - Remove</th>
+      <th>Tags</th>
+      <th>Remove?</th>
+      <th>Submit Changes</th>
+    </tr>
+  <% end %>
+  <%= render(@terms) || raw('There are no terms in Technobable. Why not ' + link_to('add one', new_term_path) + '?') %>
+</table>
+
+<br />
+<br />
+<br />
+<%= link_to 'Home', '/' %>

@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+groups = ["Creatives", "Developers", "Account Managers", "Digital Producers"]
+
+groups.each do |g|
+  Group.find_or_create_by_name g
+end

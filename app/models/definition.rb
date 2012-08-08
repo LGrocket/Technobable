@@ -1,6 +1,8 @@
 class Definition < ActiveRecord::Base
   belongs_to :term
-  attr_accessible :content, :context
+  belongs_to :group
+  attr_accessible :content, :group_id
 
-  validates :content, :presence => true
+  validates_presence_of :content
+
 end

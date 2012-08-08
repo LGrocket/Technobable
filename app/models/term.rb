@@ -1,12 +1,7 @@
 class Term < ActiveRecord::Base
   has_many :definitions#, :dependent => :destory
-  accepts_nested_attributes_for :definitions, :reject_if => :all_blank, :allow_destroy => true
 
-  #acts_as_taggable
-  #acts_as_taggable_on :tags
-  #ActsAsTaggableOn.remove_unused_tags = true
-  #ActsAsTaggableOn.force_lowercase = true
-
+  accepts_nested_attributes_for :definitions, :allow_destroy => true
   attr_accessible :name, :tags, :definitions_attributes
 
   validates :name, :presence => true, :uniqueness => true

@@ -1,0 +1,34 @@
+<! --
+<tr>
+  <div class="field">
+    <%= form_for term do |f| %>
+      <td class="name">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </td>
+      <%= f.fields_for :definitions do |ff| %>
+        <td class="definition_content">
+          <%= ff.label :content, "Definition" %>
+          <%= ff.text_area :content, :rows => 3 %>
+        </td>
+        <td class="definition_group">
+          <%= ff.label :group_id, "For:" %>
+          <%= ff.collection_select :group_id, Group.all, :id, :name %>
+        </td>
+        <td class="definition_remove">
+          <%= ff.check_box :_destroy %>
+          <%= ff.label :_destroy, "Remove this definition" %>
+        </td>
+      <% end %>
+      <td class="tags">
+        <%= f.label :tags %><br />
+        <%= f.text_field :tags %><br />
+      </td>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</tr>
+-->
+testing

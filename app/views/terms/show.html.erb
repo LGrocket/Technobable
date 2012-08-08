@@ -4,9 +4,13 @@
   <b>Name:</b>
   <%= @term.name %>
   <br />
-  <%= raw '<b>Definitions:</b>' unless @term.definitions.nil? %>
-  <% @term.definitions.each do |definition| %>
-    <li><%= definition.content %></li>
+  <% if !@term.definitions.nil? %>
+    <b>Definitions:</b>
+    <% @term.definitions.each do |d| %>
+      <li><b>For <%= d.group.name.pluralize %>:</b> <%= d.content %></li>
+    <% end %>
+  <% else %>
+    <b>There are no definitions for this term.</b>
   <% end %>
   <b>Tags:</b>
   <%= @term.tags %>

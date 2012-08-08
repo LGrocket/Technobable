@@ -36,6 +36,7 @@ class TermsController < ApplicationController
   # GET /terms/1/edit
   def edit
     @term = Term.find(params[:id])
+    @term.definitions.build
   end
 
   # POST /terms
